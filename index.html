@@ -1,0 +1,1321 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo CSS</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #fbfafc;
+            color: #34313b;
+            line-height: 1.7;
+        }
+
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #eeeaf2;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #8066a9 !important;
+            letter-spacing: -1px;
+        }
+
+        .nav-link {
+            color: #625c69;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #8066a9;
+        }
+
+
+        .portada {
+            padding: 110px 0 90px;
+        }
+
+        .etiqueta {
+            color: #8066a9;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .portada h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.08;
+            letter-spacing: -3px;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .portada h1 span {
+            color: #9278bd;
+        }
+
+        .portada p {
+            max-width: 550px;
+            color: #77717d;
+            font-size: 17px;
+        }
+
+        .boton-lila {
+            background-color: #8066a9;
+            color: white;
+            border: 1px solid #8066a9;
+            border-radius: 7px;
+            padding: 11px 22px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .boton-lila:hover {
+            background-color: #674e8e;
+            border-color: #674e8e;
+            color: white;
+        }
+
+        .boton-claro {
+            color: #8066a9;
+            border: 1px solid #d9cde8;
+            border-radius: 7px;
+            padding: 11px 22px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .boton-claro:hover {
+            background-color: #eee8f6;
+            color: #674e8e;
+        }
+
+        .portada-lateral {
+            background-color: #eee8f6;
+            border-radius: 14px;
+            padding: 35px;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .portada-lateral h2 {
+            font-size: 28px;
+            color: #725992;
+            font-weight: 700;
+        }
+
+        .portada-lateral p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+
+        .seccion {
+            padding: 75px 0;
+            border-top: 1px solid #eeeaf2;
+        }
+
+        .titulo-seccion {
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .descripcion-seccion {
+            color: #77717d;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+
+        .tema-enlace {
+            display: block;
+            color: #34313b;
+            text-decoration: none;
+            border-bottom: 1px solid #e9e4ed;
+            padding: 16px 4px;
+            transition: 0.3s;
+        }
+
+        .tema-enlace:hover {
+            color: #8066a9;
+            padding-left: 10px;
+        }
+
+        .numero-tema {
+            color: #9278bd;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+
+
+        .capitulo {
+            padding: 65px 0;
+            border-top: 1px solid #eeeaf2;
+            scroll-margin-top: 85px;
+        }
+
+        .numero-capitulo {
+            color: #9278bd;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .capitulo h2 {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin: 10px 0 18px;
+        }
+
+        .capitulo p {
+            color: #6f6975;
+        }
+
+        .codigo {
+            background-color: #282530;
+            color: #eee9f5;
+            padding: 22px;
+            border-radius: 9px;
+            font-size: 13px;
+            overflow-x: auto;
+            margin: 18px 0;
+        }
+
+        .codigo code {
+            color: #e8d7ff;
+        }
+
+        .nota {
+            background-color: #f0ebf7;
+            border-left: 4px solid #9278bd;
+            padding: 15px 18px;
+            border-radius: 4px;
+            color: #5e526d;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .ejemplo {
+            background-color: white;
+            border: 1px solid #e9e4ed;
+            border-radius: 9px;
+            padding: 22px;
+            margin-top: 20px;
+        }
+
+        .ejemplo h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+
+        .demo-flex {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            background: #f0ebf7;
+            padding: 20px;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+
+        .demo-flex div,
+        .demo-grid div {
+            background: #9278bd;
+            color: white;
+            padding: 15px 22px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background: #f0ebf7;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .demo-hover {
+            background: #eee8f6;
+            padding: 17px;
+            text-align: center;
+            border-radius: 7px;
+            transition: 0.3s;
+        }
+
+        .demo-hover:hover {
+            background: #8066a9;
+            color: white;
+            cursor: pointer;
+        }
+
+        .zona-z {
+            position: relative;
+            height: 180px;
+            background: #eee8f6;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .caja-z {
+            position: absolute;
+            width: 120px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 7px;
+        }
+
+        .caja-uno {
+            background: #b49bd4;
+            left: 25%;
+            top: 25px;
+            z-index: 1;
+        }
+
+        .caja-dos {
+            background: #725992;
+            left: 40%;
+            top: 55px;
+            z-index: 2;
+        }
+
+
+        .accordion-button:not(.collapsed) {
+            background-color: #f0ebf7;
+            color: #725992;
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #d9cde8;
+        }
+
+
+        .pregunta {
+            background-color: white;
+            border: 1px solid #e9e4ed;
+            padding: 22px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+        }
+
+        .pregunta p {
+            font-weight: 600;
+        }
+
+        .pregunta label {
+            display: block;
+            color: #6f6975;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+
+        .resultado {
+            display: none;
+            background-color: #f0ebf7;
+            padding: 25px;
+            border-radius: 9px;
+            margin-top: 25px;
+        }
+
+
+        footer {
+            background-color: #f0ebf7;
+            padding: 30px 0;
+            text-align: center;
+            color: #756a82;
+            font-size: 13px;
+        }
+
+
+        @media (max-width: 768px) {
+            .portada {
+                padding: 75px 0 60px;
+            }
+
+            .portada h1 {
+                letter-spacing: -2px;
+            }
+
+            .portada-lateral {
+                margin-top: 30px;
+                min-height: 190px;
+            }
+
+            .capitulo {
+                padding: 45px 0;
+            }
+
+            .titulo-seccion {
+                font-size: 29px;
+            }
+
+            .demo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portada h1 {
+                font-size: 43px;
+            }
+
+            .capitulo h2 {
+                font-size: 25px;
+            }
+
+            .codigo {
+                font-size: 11px;
+                padding: 15px;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .caja-uno {
+                left: 15%;
+            }
+
+            .caja-dos {
+                left: 40%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">css.guía</a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto gap-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#temario">Temario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#actividad">Actividad</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="portada" id="inicio">
+        <div class="container">
+            <div class="row align-items-center g-4">
+
+                <div class="col-lg-7">
+                    <span class="etiqueta">Guía de aprendizaje</span>
+
+                    <h1>
+                        Un poco de <span>CSS</span> para empezar.
+                    </h1>
+
+                    <p>
+                        En esta página se explican algunos de los conceptos
+                        más importantes de CSS, desde su estructura hasta
+                        la forma en que podemos organizar y diseñar una página web.
+                    </p>
+
+                    <div class="mt-4 d-flex flex-wrap gap-2">
+                        <a href="#temario" class="boton-lila">
+                            Ver los temas
+                        </a>
+
+                        <a href="#actividad" class="boton-claro">
+                            Practicar
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="portada-lateral">
+                        <span class="etiqueta">CSS / Diseño web</span>
+                        <h2>Dar estilo también es programar.</h2>
+                        <p>
+                            CSS permite cambiar la apariencia de los sitios
+                            web y mejorar la experiencia de las personas que los visitan.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="seccion" id="temario">
+        <div class="container">
+
+            <span class="etiqueta">Contenido</span>
+            <h2 class="titulo-seccion">Temas que vamos a ver</h2>
+
+            <p class="descripcion-seccion">
+                Estos son los temas principales de la guía. Puedes seleccionar
+                cualquiera para ir directamente a su explicación.
+            </p>
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    <a class="tema-enlace" href="#tema1">
+                        <span class="numero-tema">01</span>
+                        Estructura y sintaxis de CSS
+                    </a>
+
+                    <a class="tema-enlace" href="#tema2">
+                        <span class="numero-tema">02</span>
+                        CSS interno, externo y en línea
+                    </a>
+
+                    <a class="tema-enlace" href="#tema3">
+                        <span class="numero-tema">03</span>
+                        Indentación, herencia y comentarios
+                    </a>
+
+                    <a class="tema-enlace" href="#tema4">
+                        <span class="numero-tema">04</span>
+                        Especificidad
+                    </a>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <a class="tema-enlace" href="#tema5">
+                        <span class="numero-tema">05</span>
+                        Flexbox, Grid y breakpoints
+                    </a>
+
+                    <a class="tema-enlace" href="#tema6">
+                        <span class="numero-tema">06</span>
+                        Media Queries
+                    </a>
+
+                    <a class="tema-enlace" href="#tema7">
+                        <span class="numero-tema">07</span>
+                        Pseudoelementos y pseudoclases
+                    </a>
+
+                    <a class="tema-enlace" href="#tema8">
+                        <span class="numero-tema">08</span>
+                        Z-index
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="capitulo" id="tema1">
+        <div class="container">
+            <span class="numero-capitulo">TEMA 01</span>
+            <h2>Estructura y sintaxis de CSS</h2>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <p>
+                        CSS significa hojas de estilo en cascada. Es un lenguaje
+                        que se utiliza para darle apariencia a una página web.
+                        Con él podemos cambiar colores, tamaños, tipos de letra,
+                        espacios, bordes y muchas otras cosas.
+                    </p>
+
+                    <p>
+                        Una regla de CSS está formada por un selector y un bloque
+                        de declaraciones. El selector indica qué elemento queremos
+                        modificar y las declaraciones indican qué cambios queremos hacer.
+                    </p>
+
+                    <div class="nota">
+                        <strong>Para recordar:</strong> HTML organiza el contenido
+                        de la página y CSS se encarga de su presentación visual.
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="codigo"><code>
+h1 {
+    color: purple;
+    font-size: 30px;
+    text-align: center;
+}
+                    </code></div>
+
+                    <p><strong>¿Qué significa cada parte?</strong></p>
+                    <ul>
+                        <li><strong>h1:</strong> es el selector.</li>
+                        <li><strong>color:</strong> es una propiedad.</li>
+                        <li><strong>purple:</strong> es el valor.</li>
+                        <li><strong>font-size:</strong> cambia el tamaño del texto.</li>
+                        <li><strong>text-align:</strong> alinea el texto.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="capitulo" id="tema2">
+        <div class="container">
+            <span class="numero-capitulo">TEMA 02</span>
+            <h2>CSS interno, externo y en línea</h2>
+
+            <p>
+                Existen tres formas principales de agregar CSS a un documento HTML.
+                Todas sirven para cambiar el diseño, pero se utilizan de manera diferente.
+            </p>
+
+            <div class="accordion" id="acordeonCSS">
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#interno">
+                            1. CSS interno
+                        </button>
+                    </h3>
+
+                    <div id="interno" class="accordion-collapse collapse show"
+                        data-bs-parent="#acordeonCSS">
+                        <div class="accordion-body">
+                            Se escribe dentro de la etiqueta
+                            <strong>style</strong>, que normalmente se coloca
+                            en el head del documento HTML.
+
+                            <div class="codigo"><code>
+&lt;head&gt;
+    &lt;style&gt;
+        body {
+            background-color: lavender;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+                            </code></div>
+
+                            Es útil cuando queremos aplicar estilos a una sola página.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#externo">
+                            2. CSS externo
+                        </button>
+                    </h3>
+
+                    <div id="externo" class="accordion-collapse collapse"
+                        data-bs-parent="#acordeonCSS">
+                        <div class="accordion-body">
+                            Se escribe en un archivo independiente con extensión
+                            .css y se conecta al HTML utilizando la etiqueta
+                            <strong>link</strong>.
+
+                            <div class="codigo"><code>
+&lt;link rel="stylesheet" href="estilos.css"&gt;
+                            </code></div>
+
+                            En el archivo estilos.css podemos escribir:
+
+                            <div class="codigo"><code>
+body {
+    background-color: lavender;
+}
+
+h1 {
+    color: purple;
+}
+                            </code></div>
+
+                            Es una buena opción cuando tenemos varias páginas
+                            porque podemos compartir los mismos estilos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#linea">
+                            3. CSS en línea
+                        </button>
+                    </h3>
+
+                    <div id="linea" class="accordion-collapse collapse"
+                        data-bs-parent="#acordeonCSS">
+                        <div class="accordion-body">
+                            Se agrega directamente en una etiqueta HTML utilizando
+                            el atributo <strong>style</strong>.
+
+                            <div class="codigo"><code>
+&lt;p style="color: purple;"&gt;
+    Este es un texto de ejemplo.
+&lt;/p&gt;
+                            </code></div>
+
+                            Es rápido para hacer un cambio puntual, pero no es
+                            recomendable utilizarlo para diseñar toda una página.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="nota">
+                <strong>Mi recomendación:</strong> para proyectos más organizados,
+                es mejor utilizar CSS externo porque permite separar el diseño
+                del contenido HTML.
+            </div>
+        </div>
+    </section>
+
+    <section class="capitulo" id="tema3">
+        <div class="container">
+            <span class="numero-capitulo">TEMA 03</span>
+            <h2>Indentación, herencia y comentarios</h2>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4">
+                    <h4>Indentación</h4>
+                    <p>
+                        Es el espacio que dejamos al comienzo de algunas líneas
+                        de código para que sea más fácil leerlas y entender
+                        cómo están organizadas.
+                    </p>
+
+                    <div class="codigo"><code>
+.card {
+    padding: 20px;
+    color: purple;
+}
+                    </code></div>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4>Herencia</h4>
+                    <p>
+                        Es cuando algunos elementos reciben ciertos estilos
+                        de su elemento padre. Por ejemplo, el color del texto
+                        puede heredarse.
+                    </p>
+
+                    <div class="codigo"><code>
+body {
+    color: purple;
+    font-family: Arial;
+}
+                    </code></div>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4>Comentarios</h4>
+                    <p>
+                        Son notas que se escriben en el código para explicar
+                        algo. El navegador no las muestra en la página.
+                    </p>
+
+                    <div class="codigo"><code>
+/* Este es un comentario */
+
+h1 {
+    color: purple;
+}
+                    </code></div>
+                </div>
+
+            </div>
+
+            <div class="nota">
+                No todas las propiedades se heredan. Algunas, como el color,
+                suelen heredarse, mientras que otras, como el margen,
+                normalmente no lo hacen.
+            </div>
+        </div>
+    </section>
+
+    <section class="capitulo" id="tema4">
+        <div class="container">
+            <span class="numero-capitulo">TEMA 04</span>
+            <h2>Especificidad</h2>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <p>
+                        La especificidad es una forma de determinar qué regla
+                        CSS tiene prioridad cuando varias reglas intentan
+                        modificar el mismo elemento.
+                    </p>
+
+                    <p>
+                        Por ejemplo, si un párrafo tiene un estilo general,
+                        pero también tiene una clase, el estilo de la clase
+                        normalmente tendrá mayor especificidad.
+                    </p>
+
+                    <div class="nota">
+                        En general, un selector de ID tiene más especificidad
+                        que una clase, y una clase tiene más que un selector
+                        de etiqueta. También influyen la cascada y el uso de
+                        !important.
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="codigo"><code>
+
+p {
+    color: blue;
+}
+
+
+.texto {
+    color: purple;
+}
+
+
+#principal {
+    color: red;
+}
+                    </code></div>
+
+                    <p>
+                        Si el mismo elemento tiene estos selectores y las reglas
+                        compiten en las mismas condiciones, el ID tendrá prioridad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="capitulo" id="tema5">
+        <div class="container">
+            <span class="numero-capitulo">TEMA 05</span>
+            <h2>Flexbox, Grid y breakpoints</h2>
+
+            <p>
+                Son herramientas que ayudan a organizar los elementos de una
+                página. Se utilizan para crear diseños ordenados y adaptables
+                a diferentes tamaños de pantalla.
+            </p>
+
+            <div class="row g-4 mt-2">
+
+                <div class="col-lg-6">
+                    <h4>Flexbox</h4>
+                    <p>
+                        Flexbox permite organizar elementos en una fila o columna.
+                        Es útil cuando necesitamos alinear elementos y distribuir
+                        el espacio entre ellos.
+                    </p>
+
+                    <div class="codigo"><code>
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+                    </code></div>
+
+                    <div class="ejemplo">
+                        <h4>Ejemplo de Flexbox</h4>
+                        <div class="demo-flex">
+                            <div>Uno</div>
+                            <div>Dos</div>
+                            <div>Tres</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h4>Grid</h4>
+                    <p>
+                        CSS Grid permite organizar elementos en filas y columnas.
+                        Es muy útil para crear distribuciones más completas,
+                        como galerías o secciones de una página.
+                    </p>
+
+                    <div class="codigo"><code>
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+                    </code></div>
+
+                    <div class="ejemplo">
+                        <h4>Ejemplo de Grid</h4>
+                        <div class="demo-grid">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                            <div>5</div>
+                            <div>6</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-5">
+                <h4>Breakpoints</h4>
+                <p>
+                    Son puntos de referencia que se utilizan para cambiar
+                    el diseño dependiendo del ancho de la pantalla.
+                    Por ejemplo, podemos mostrar tres columnas en un computador
+                    y una sola columna en un celular.
+                </p>
+
+                <div class="codigo"><code>
+@media (max-width: 768px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+}
+                </code></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="capitulo" id="tema6">
+        <div class="container">
+            <span class="numero-capitulo">TEMA 06</span>
+            <h2>Media Queries</h2>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <p>
+                        Las Media Queries permiten aplicar diferentes estilos
+                        dependiendo de las características del dispositivo,
+                        principalmente el ancho de la pantalla.
+                    </p>
+
+                    <p>
+                        Se utilizan mucho para hacer que una página web sea
+                        responsive, es decir, que se adapte a celulares,
+                        tabletas y computadores.
+                    </p>
+
+                    <div class="nota">
+                        Una página responsive se ajusta al tamaño de la pantalla
+                        para que el contenido pueda verse y utilizarse correctamente.
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="codigo"><code>
+
+.contenedor {
+    width: 80%;
+    margin: auto;
+}
+
+
+@media (max-width: 768px) {
+    .contenedor {
+        width: 95%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 25px;
+    }
+}
+                    </code></div>
+                </div>
+            </div>
+
+            <div class="ejemplo">
+                <h4>¿Qué debemos tener en cuenta?</h4>
+                <ul class="mb-0">
+                    <li>Que los textos se puedan leer sin hacer zoom.</li>
+                    <li>Que las imágenes no se salgan de la pantalla.</li>
+                    <li>Que los menús sean fáciles de utilizar.</li>
+                    <li>Que los elementos se acomoden según el dispositivo.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="capitulo" id="tema7">
+        <div class="container">
+            <span class="numero-capitulo">TEMA 07</span>
+            <h2>Pseudoelementos y pseudoclases</h2>
+
+            <div class="row g-4">
+
+                <div class="col-lg-6">
+                    <h4>Pseudoclases</h4>
+
+                    <p>
+                        Las pseudoclases permiten aplicar estilos cuando un
+                        elemento se encuentra en un estado específico.
+                        Por ejemplo, cuando pasamos el mouse sobre un botón.
+                    </p>
+
+                    <div class="codigo"><code>
+button:hover {
+    background-color: purple;
+    color: white;
+}
+
+input:focus {
+    border: 2px solid purple;
+}
+                    </code></div>
+
+                    <div class="ejemplo">
+                        <h4>Prueba pasando el mouse</h4>
+                        <div class="demo-hover">
+                            Pasa el mouse por aquí
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h4>Pseudoelementos</h4>
+
+                    <p>
+                        Los pseudoelementos permiten modificar una parte
+                        específica de un elemento o agregar contenido
+                        decorativo sin tener que crear otra etiqueta HTML.
+                    </p>
+
+                    <div class="codigo"><code>
+p::first-letter {
+    color: purple;
+    font-size: 30px;
+}
+
+h2::after {
+    content: " ✦";
+    color: purple;
+}
+                    </code></div>
+
+                    <div class="ejemplo">
+                        <h4>Ejemplo de pseudoelemento</h4>
+                        <p style="margin: 0;">
+                            El primer carácter de este párrafo tiene un estilo
+                            diferente gracias a first-letter.
+                        </p>
+                        <style>
+                            .texto-demo::first-letter {
+                                color: #8066a9;
+                                font-size: 30px;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <p class="texto-demo mb-0">
+                            Este es otro ejemplo para observar el cambio.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="capitulo" id="tema8">
+        <div class="container">
+            <span class="numero-capitulo">TEMA 08</span>
+            <h2>Z-index</h2>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <p>
+                        La propiedad z-index sirve para controlar qué elemento
+                        aparece delante o detrás de otro cuando se superponen.
+                    </p>
+
+                    <p>
+                        Para que funcione de la forma habitual, los elementos
+                        deben tener una posición diferente de static,
+                        como relative, absolute o fixed.
+                    </p>
+
+                    <div class="codigo"><code>
+.caja1 {
+    position: absolute;
+    z-index: 1;
+}
+
+.caja2 {
+    position: absolute;
+    z-index: 2;
+}
+                    </code></div>
+
+                    <div class="nota">
+                        Un número más alto normalmente indica que el elemento
+                        aparecerá delante. Sin embargo, también debemos tener
+                        en cuenta los contextos de apilamiento.
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="ejemplo">
+                        <h4>Ejemplo visual</h4>
+                        <p>La caja morada oscura está por encima de la clara.</p>
+
+                        <div class="zona-z">
+                            <div class="caja-z caja-uno">z-index: 1</div>
+                            <div class="caja-z caja-dos">z-index: 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion" id="actividad">
+        <div class="container">
+
+            <span class="etiqueta">Para practicar</span>
+            <h2 class="titulo-seccion">Comprueba lo aprendido</h2>
+
+            <p class="descripcion-seccion">
+                Responde las siguientes preguntas sobre los temas de esta guía.
+                Al finalizar podrás ver tu resultado.
+            </p>
+
+            <form id="formulario">
+
+                <div class="pregunta">
+                    <p>1. ¿Para qué sirve CSS?</p>
+                    <label><input type="radio" name="p1" value="a"> Para crear bases de datos.</label>
+                    <label><input type="radio" name="p1" value="b"> Para darle estilos a una página web.</label>
+                    <label><input type="radio" name="p1" value="c"> Para reemplazar HTML.</label>
+                </div>
+
+                <div class="pregunta">
+                    <p>2. ¿Cuál es la forma de conectar un archivo CSS externo?</p>
+                    <label><input type="radio" name="p2" value="a"> Con la etiqueta script.</label>
+                    <label><input type="radio" name="p2" value="b"> Con la etiqueta body.</label>
+                    <label><input type="radio" name="p2" value="c"> Con la etiqueta link.</label>
+                </div>
+
+                <div class="pregunta">
+                    <p>3. ¿Qué significa la indentación?</p>
+                    <label><input type="radio" name="p3" value="a"> Cambiar el color de un texto.</label>
+                    <label><input type="radio" name="p3" value="b"> Organizar el código mediante espacios.</label>
+                    <label><input type="radio" name="p3" value="c"> Crear una animación.</label>
+                </div>
+
+                <div class="pregunta">
+                    <p>4. ¿Qué selector tiene mayor especificidad entre estos tres?</p>
+                    <label><input type="radio" name="p4" value="a"> Selector de etiqueta.</label>
+                    <label><input type="radio" name="p4" value="b"> Selector de clase.</label>
+                    <label><input type="radio" name="p4" value="c"> Selector de ID.</label>
+                </div>
+
+                <div class="pregunta">
+                    <p>5. ¿Para qué se utiliza Flexbox?</p>
+                    <label><input type="radio" name="p5" value="a"> Para organizar elementos en filas o columnas.</label>
+                    <label><input type="radio" name="p5" value="b"> Para crear bases de datos.</label>
+                    <label><input type="radio" name="p5" value="c"> Para cambiar el contenido HTML.</label>
+                </div>
+
+                <div class="pregunta">
+                    <p>6. ¿Qué permiten las Media Queries?</p>
+                    <label><input type="radio" name="p6" value="a"> Eliminar los estilos.</label>
+                    <label><input type="radio" name="p6" value="b"> Adaptar el diseño a diferentes pantallas.</label>
+                    <label><input type="radio" name="p6" value="c"> Crear archivos HTML.</label>
+                </div>
+
+                <div class="pregunta">
+                    <p>7. ¿Qué pseudoclase se utiliza cuando pasamos el mouse sobre un elemento?</p>
+                    <label><input type="radio" name="p7" value="a"> :hover</label>
+                    <label><input type="radio" name="p7" value="b"> ::after</label>
+                    <label><input type="radio" name="p7" value="c"> :root</label>
+                </div>
+
+                <div class="pregunta">
+                    <p>8. ¿Para qué sirve z-index?</p>
+                    <label><input type="radio" name="p8" value="a"> Para cambiar el tamaño de una imagen.</label>
+                    <label><input type="radio" name="p8" value="b"> Para controlar el orden de superposición.</label>
+                    <label><input type="radio" name="p8" value="c"> Para cambiar el tipo de letra.</label>
+                </div>
+
+                <button type="button" class="boton-lila" onclick="calificar()">
+                    Revisar respuestas
+                </button>
+
+                <button type="reset" class="boton-claro ms-2" onclick="reiniciar()">
+                    Volver a intentar
+                </button>
+
+            </form>
+
+            <div class="resultado" id="resultado">
+                <h3 id="tituloResultado"></h3>
+                <p id="mensajeResultado" class="mb-0"></p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="seccion">
+        <div class="container">
+            <span class="etiqueta">Para terminar</span>
+            <h2 class="titulo-seccion">Lo que aprendimos</h2>
+
+            <p class="descripcion-seccion">
+                CSS es una parte importante del desarrollo web porque permite
+                que una página no solamente tenga información, sino que también
+                tenga una presentación organizada y agradable.
+            </p>
+
+            <p class="descripcion-seccion">
+                Conocer sus propiedades y herramientas nos ayuda a crear páginas
+                que se adapten a diferentes dispositivos, organizar mejor los
+                elementos y mejorar la forma en que las personas utilizan un sitio web.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="mb-1">Guía de aprendizaje CSS</p>
+            <p class="mb-0">Proyecto académico · Desarrollo web</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        function calificar() {
+
+            const respuestasCorrectas = {
+                p1: "b",
+                p2: "c",
+                p3: "b",
+                p4: "c",
+                p5: "a",
+                p6: "b",
+                p7: "a",
+                p8: "b"
+            };
+
+            let puntos = 0;
+            let contestadas = 0;
+
+            for (let pregunta in respuestasCorrectas) {
+
+                const seleccionada = document.querySelector(
+                    'input[name="' + pregunta + '"]:checked'
+                );
+
+                if (seleccionada) {
+                    contestadas++;
+
+                    if (seleccionada.value === respuestasCorrectas[pregunta]) {
+                        puntos++;
+                    }
+                }
+            }
+
+            const resultado = document.getElementById("resultado");
+            const titulo = document.getElementById("tituloResultado");
+            const mensaje = document.getElementById("mensajeResultado");
+
+            resultado.style.display = "block";
+
+            if (contestadas < 8) {
+                titulo.textContent = "Te faltan algunas respuestas";
+                mensaje.textContent =
+                    "Has respondido " + contestadas +
+                    " de 8 preguntas. Completa todas para conocer tu resultado.";
+            } else {
+                titulo.textContent = "Tu resultado: " + puntos + " de 8";
+
+                let porcentaje = (puntos / 8) * 100;
+
+                if (puntos === 8) {
+                    mensaje.textContent =
+                        "¡Excelente! Respondiste todas las preguntas correctamente. Tu porcentaje es " +
+                        porcentaje + "%.";
+                } else if (puntos >= 5) {
+                    mensaje.textContent =
+                        "¡Vas bien! Has comprendido varios temas. Tu porcentaje es " +
+                        porcentaje + "%. Puedes repasar las preguntas que fallaste.";
+                } else {
+                    mensaje.textContent =
+                        "Sigue practicando. Te recomendamos volver a revisar los temas. Tu porcentaje es " +
+                        porcentaje + "%.";
+                }
+            }
+
+            resultado.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+
+        function reiniciar() {
+            document.getElementById("resultado").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
